@@ -1,0 +1,26 @@
+current directory: /home/undergrad/1/goode/WebDropDead/vendor/bundle/ruby/3.1.0/gems/puma-5.6.5/ext/puma_http11
+/usr/bin/ruby3.1 -I /usr/lib/ruby/vendor_ruby -r ./siteconf20241113-3292747-gill0d.rb extconf.rb
+checking for BIO_read() in -lcrypto... no
+checking for BIO_read() in -llibeay32... no
+** Puma will be compiled without SSL support
+creating Makefile
+
+current directory: /home/undergrad/1/goode/WebDropDead/vendor/bundle/ruby/3.1.0/gems/puma-5.6.5/ext/puma_http11
+make DESTDIR\= clean
+make: Warning: File 'Makefile' has modification time 234 s in the future
+make: warning:  Clock skew detected.  Your build may be incomplete.
+
+current directory: /home/undergrad/1/goode/WebDropDead/vendor/bundle/ruby/3.1.0/gems/puma-5.6.5/ext/puma_http11
+make DESTDIR\=
+make: Warning: File 'Makefile' has modification time 234 s in the future
+compiling http11_parser.c
+compiling mini_ssl.c
+compiling puma_http11.c
+linking shared-object puma/puma_http11.so
+make: warning:  Clock skew detected.  Your build may be incomplete.
+
+current directory: /home/undergrad/1/goode/WebDropDead/vendor/bundle/ruby/3.1.0/gems/puma-5.6.5/ext/puma_http11
+make DESTDIR\= install
+make: Warning: File 'Makefile' has modification time 232 s in the future
+/usr/bin/install -c -m 0755 puma_http11.so ./.gem.20241113-3292747-90ldo1/puma
+make: warning:  Clock skew detected.  Your build may be incomplete.

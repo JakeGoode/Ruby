@@ -1,0 +1,39 @@
+<h1>Play WebDropDead</h1>
+
+<% if @game_output.present? %>
+  <!-- Display game output and new buttons after the game is played -->
+  <pre><%= @game_output %></pre>
+
+  <!-- Buttons for Play Again, Change Settings, and Go Back -->
+  <div>
+    <br><%= button_to 'Play Again', submit_game_path(player_count: params[:player_count], dice_count: params[:dice_count], sides: params[:sides]), method: :post, class: 'btn btn-success' %>
+    <br><%= button_to 'Change Settings', play_game_path, method: :get, class: 'btn btn-success' %>
+    <br><%= button_to 'Go Back', user_page_path, class: 'btn btn-secondary', method: :get %>
+  </div>
+
+<% else %>
+  <!-- Display form only if game has not yet been played -->
+  <%= form_with url: submit_game_path, method: :post do %>
+    <%= label_tag :player_count, 'Number of Players:' %>
+    <%= number_field_tag :player_count, nil, placeholder: 'Number of players (Min:2)', class: 'wide-input', required: true %><br>
+    
+    <br><%= label_tag :dice_count, 'Number of Dice:' %>
+    <%= number_field_tag :dice_count, nil, placeholder: 'Number of dice (Min:2)', class: 'wide-input', required: true %><br>
+    
+    <br><%= label_tag :sides, 'Number of Sides per Die:' %>
+    <%= number_field_tag :sides, nil, placeholder: 'Number of sides per die (Min:6)', class: 'wide-input', required: true %><br>
+    <br><%= submit_tag 'Submit', class: 'btn btn-primary' %>
+  <% end %>
+
+  <!-- Display any errors if form was not filled out properly -->
+  <% if @errors.present? %>
+    <div id='error-messages' style='color: red;'>
+      <% @errors.each do |error| %>
+        <p><%= error %></p>
+      <% end %>
+    </div>
+  <% end %>
+
+  <!-- Go Back button, visible only if the form is displayed -->
+  <br><%= button_to 'Go Back', user_page_path, class: 'btn btn-secondary', method: :get %>
+<% end %>
